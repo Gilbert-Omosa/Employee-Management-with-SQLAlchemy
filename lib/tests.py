@@ -40,6 +40,7 @@ result = find_employees_by_email(email)
 for employee in result:
     print(f"Employee Name: {employee.name} - Email: {employee.email}")
 
+print(">>>>>>>>>>>> <<<<< >>>>> <<<<<<<<<<<")
 
 
 
