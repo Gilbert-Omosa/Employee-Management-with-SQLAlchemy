@@ -1,5 +1,7 @@
 #### Employee Management System, 13/12/2023
+
 #### **By Eckra Wangui, Caleb Mutisya, Evan Keya, Gilbert Omosa**
+
 ##  Project Description
 
 This project is an Employee Management System built using SQLAlchemy, is a flexible Object-Relational Mapping (ORM) library for Python. It allows you to perform CRUD operations on employees, departments, and positions within an organization with ease.
@@ -45,3 +47,6 @@ This project is an Employee Management System built using SQLAlchemy, is a flexi
 ### License
 *Licenced under the MIT Licence
 Copyright (c) 2023 Gilbert Omosa, Eckra Wangui, Evan Keya, Caleb Mutisya
+
+
+[Read the full license text here](LICENSE)
