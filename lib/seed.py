@@ -1,5 +1,5 @@
 import random
-from config import *
+from config import Faker
 
 fake = Faker()
 
