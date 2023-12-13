@@ -1,1 +1,48 @@
-Generic single-database configuration.
+#### Employee Management System, 13/12/2023
+#### **By Eckra Wangui, Caleb Mutisya, Evan Keya, Gilbert Omosa**
+## Project Description
+
+    This project is an Employee Management System built using SQLAlchemy, is a flexible Object-Relational Mapping (ORM) library for Python. It allows you to perform CRUD operations on employees, departments, and positions within an organization with ease.
+
+#### User Stories
+
+    1. As a user, As a User, I want  to add a new employee record, providing details like name,  age, contact information, department, and position.
+    2. As a user, I want to retrieve  employee information using various parameters such as employee ID, name, and age for efficient record management.
+    3. As a user, I want an efficient process to link an employee to a specific position.
+    4. As a user, I want to associate an employee with a particular department.
+    5. As a user, I want to see a list of employees working in a specific department.
+    6. As a user, I want to view a list of available positions within a department
+    7. As a user, i want to Move employees to different departments
+
+    
+
+## Setup/Installation Requirements
+    - copy the git code url from git hub.
+    - git clone the repository into your desired folder.
+    - cd into the folder on terminal.
+    - Open the folder with vs code, by running code . on the terminal.
+    - open terminal in vs code and run pipenv install, and install python 3.10 if you are prompted to.
+    - run pipenv shell to move into your virtual environment
+    - Run "Python" then the 'file name' to test the application.
+    
+       
+## Known Bugs
+    The system works well and has no bugs.
+
+## Technologies used
+    - Python3
+    - Sqlite
+    - Alembic
+    - Terminal
+
+## Support and contact details
+
+    - caleb.mutisya@student.moringaschool.com, +254741050611
+    - wanguieckra@gmail.com, +254702697921
+    - gilbert.omosa@student.moringaschool.com, +254721713957
+    - evan.keya@student.moringaschool.com, +254797118632
+    
+
+### License
+*Licenced under the MIT Licence
+Copyright (c) 2023 Gilbert Omosa, Eckra Wangui, Evan Keya, Caleb Mutisya
