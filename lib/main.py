@@ -1,5 +1,6 @@
 from config import *
-
+from sqlalchemy import desc, func
+from sqlalchemy.orm import joinedload
 # CRUD functions for the Employee model
 def create_employee(name, age, gender, email, phone, address, hire_date, department_id, position_id):
     employee = Employee(
@@ -107,6 +108,16 @@ def females_above_age_45():
                 employees_by_department[department_name]=[]
             employees_by_department[department_name].append(employee)
     return employees_by_department
+
+#order employees by pay in descending order and get the sum of salary the organization pays
+def salary_outlook():
+    # Join Employee and Position tables and order by salary in descending order
+    employees_ordered_by_salary = session.query(Employee).join(Position).order_by(desc(Position.salary)).all()
+
+    # Calculate the sum of salaries
+    total_salary = session.query(func.sum(Position.salary)).scalar()
+
+    return employees_ordered_by_salary, total_salary
 
 
 
