@@ -100,4 +100,7 @@ def sort_employees_by_age():
     sorted_employees = session.query(Employee).order_by(Employee.age).all()
     return sorted_employees
 
+#return the number of employees in a given department
+def count_employees_in_department(department_id):
+    return session.query(Employee).filter(Employee.department_id == department_id).count()
 session.close()
