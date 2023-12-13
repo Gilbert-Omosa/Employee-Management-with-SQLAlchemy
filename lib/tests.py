@@ -27,3 +27,15 @@ if result:
     print(f"Net Salary: {result['net_salary']}")
 else:
     print(f"No position information found for Employee ID {employee_id_to_calculate}.")
+
+print("*****Find employee by age range*****")
+min_age=18
+max_age=40
+result = list_employees_by_age_range(min_age, max_age)
+for employee in result:
+    print(f"Employee Name: {employee.name} - Age: {employee.age}")
+
+
+
+
+

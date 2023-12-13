@@ -154,3 +154,8 @@ def net_salary(employee_id):
     else:
         return None  # Handle the case where the employee has no associated position
 
+#List employees by age range
+def list_employees_by_age_range(min_age, max_age):
+    employees_in_range = session.query(Employee).filter(Employee.age.between(min_age, max_age)).all()
+    return employees_in_range
+
