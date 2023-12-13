@@ -34,6 +34,11 @@ max_age=40
 result = list_employees_by_age_range(min_age, max_age)
 for employee in result:
     print(f"Employee Name: {employee.name} - Age: {employee.age}")
+print("*****Find employee by email*****")
+email= "vmiller@example.org"
+result = find_employees_by_email(email)
+for employee in result:
+    print(f"Employee Name: {employee.name} - Email: {employee.email}")
 
 
 

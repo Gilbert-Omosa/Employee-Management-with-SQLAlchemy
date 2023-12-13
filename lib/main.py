@@ -159,3 +159,7 @@ def list_employees_by_age_range(min_age, max_age):
     employees_in_range = session.query(Employee).filter(Employee.age.between(min_age, max_age)).all()
     return employees_in_range
 
+#find employee by email
+def find_employees_by_email(email):
+    return session.query(Employee).filter(Employee.email.ilike(f"%{email}%")).all()
+
