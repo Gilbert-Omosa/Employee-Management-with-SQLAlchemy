@@ -90,4 +90,23 @@ def fetch_employees_by_department_and_position(department_id, position_id):
 
 session.close()
 
-#CALEB
+#--------CALEB FUNCTIONS-----------#
+# get all female employees above the age of 45 in each department
+def females_above_age_45():
+    # query to select all female employees who are older than 45
+    female_employees= session.query(Employee).filter(Employee.gender == "Female", Employee.age > 45).all()
+
+    #Group employees by department
+    employees_by_department={}
+    for employee in female_employees:
+        department= employee.department
+        if department is not None:
+            department_name = department.name
+            department_name= employee.department.name
+            if department_name not in  employees_by_department:
+                employees_by_department[department_name]=[]
+            employees_by_department[department_name].append(employee)
+    return employees_by_department
+
+
+
