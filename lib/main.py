@@ -1,5 +1,7 @@
 from config import *
 
+
+
 # CRUD functions for the Employee model
 def create_employee(name, age, gender, email, phone, address, hire_date, department_id, position_id):
     employee = Employee(
