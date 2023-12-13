@@ -88,4 +88,9 @@ def fetch_employees_by_department_and_position(department_id, position_id):
     employees_by_department_and_position = session.query(Employee).filter(Employee.department_id == department_id, Employee.position_id == position_id).all()
     return employees_by_department_and_position
 
+#ECKRA. Sort employees by name
+def sort_employees_by_name():
+    sorted_employees= session.query(Employee).order_by(Employee.name).all()
+    return sorted_employees
+
 session.close()
