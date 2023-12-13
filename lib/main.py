@@ -1,4 +1,5 @@
 from config import *
+from sqlalchemy import func
 
 # CRUD functions for the Employee model
 def create_employee(name, age, gender, email, phone, address, hire_date, department_id, position_id):
@@ -96,12 +97,27 @@ def transfer_employee(employee, new_department_id):
     session.commit() 
     return employee
 
-# Duration that an employee has worked since their hire date
 
-def calculate_tenure(employee, current_date):
-    hire_date = employee.hire_date
-    tenure_years = (current_date - hire_date).days // 365
-    return tenure_years
+def get_department_with_highest_salary_expense():
+    result = (
+        session.query(Department.name, func.sum(Position.salary).label('total_salary'))
+        .join(Employee, Employee.department_id == Department.id)
+        .join(Position, Position.id == Employee.position_id)
+        .group_by(Department.id)
+        .order_by(func.sum(Position.salary).desc())
+        .first()
+    )
+    return result
+
+
+def fetch_long_tenure_employees(min_tenure_years):
+    current_date = datetime.now()
+    long_tenure_employees = (
+        session.query(Employee)
+        .filter((current_date - Employee.hire_date).days // 365 >= min_tenure_years)
+        .all()
+    )
+    return long_tenure_employees
  
 
 session.close()
