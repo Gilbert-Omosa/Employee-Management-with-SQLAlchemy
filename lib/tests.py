@@ -8,7 +8,7 @@ for department, employees in result.items():
     for employee in employees:
         print(f"  Employee: {employee.name}, Age: {employee.age}")
 
-print("***** Employees ordered by salary in descending order: *****")
+print("***** Employees ordered by salary in descending order and get Sum: *****")
 ordered_employees, total_salary = salary_outlook()
 for employee in ordered_employees:
     print(f"  Employee: {employee.name}, Salary: {employee.position.salary}")
