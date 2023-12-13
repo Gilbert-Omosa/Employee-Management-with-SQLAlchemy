@@ -119,5 +119,38 @@ def salary_outlook():
 
     return employees_ordered_by_salary, total_salary
 
+#calculate net salary of employee after deductions: 15% INCOME TAX , 5% HOUSING LEVY and 2% UNION FEES
+def net_salary(employee_id):
+    # Retrieve the employee and their position information
+    employee = session.query(Employee).get(employee_id)
+    position = employee.position
 
+    if position is not None:
+        # Calculate deductions
+        income_tax_rate = 0.15
+        housing_levy_rate = 0.05
+        union_fees_rate = 0.02
+
+        gross_salary = position.salary
+        income_tax = gross_salary * income_tax_rate
+        housing_levy = gross_salary * housing_levy_rate
+        union_fees = gross_salary * union_fees_rate
+
+        # Calculate net salary after deductions
+        net_salary = gross_salary - income_tax - housing_levy - union_fees
+
+        # Return detailed information
+        result = {
+            "employee_name": employee.name,
+            "gross_salary": gross_salary,
+            "deductions": {
+                "income_tax": income_tax,
+                "housing_levy": housing_levy,
+                "union_fees": union_fees,
+            },
+            "net_salary": net_salary,
+        }
+        return result
+    else:
+        return None  # Handle the case where the employee has no associated position
 
