@@ -19,7 +19,7 @@ This project is an Employee Management System built using SQLAlchemy, a flexible
 
 - Copy the Git code URL from GitHub.
 - Git clone the repository into your desired folder.
-- cd to the folder you cloned on the terminal.
+- Navigate to the folder on the terminal.
 - Open the folder with VS Code by running `code .` in the terminal.
 - Open the terminal in VS Code and run `pipenv install`, and install Python 3.10 if prompted.
 - Run `pipenv shell` to move into your virtual environment.
