@@ -39,7 +39,6 @@ def females_above_age_45():
                 employees_by_department[department_name]=[]
             employees_by_department[department_name].append(employee)
     return employees_by_department
->>>>>>> origin/Gilbert
 
 #years to retirement
 def years_to_retirement(retirement_age):
