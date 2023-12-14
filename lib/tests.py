@@ -8,8 +8,10 @@ def test_sort_employees_by_name():
     print("\nSort employees by name:")
     for employee in sorted_employees:
         print(f"{employee.name}")
+        
+test_sort_employees_by_name()
 
-# Test for sorting employees by age
+# # Test for sorting employees by age
 def test_sort_employees_by_age():
     sorted_employees = sort_employees_by_age()
     print("\nSort employees by age:")
@@ -17,7 +19,7 @@ def test_sort_employees_by_age():
         print(f"{employee.name}, Age: {employee.age}")
 
 
-test_sort_employees_by_name()
+  
 test_sort_employees_by_age()
 
 
@@ -54,8 +56,8 @@ if __name__ == '__main__':
 def test_search_positions_for_all_groups():
     # Define a list of job groups to test
     job_groups = ['J', 'K', 'C', 'E', 'Y', 'X', 'Z', 'M', 'P']
-    min_salary = 50000
-    max_salary = 100000
+    min_salary = 30000
+    max_salary = 90000
     
     for job_group in job_groups:
         positions = search_positions_by_job_group_and_salary_range(job_group, min_salary, max_salary)
@@ -66,6 +68,8 @@ def test_search_positions_for_all_groups():
 
 
 test_search_positions_for_all_groups()
+
+
 
     
 
