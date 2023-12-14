@@ -91,9 +91,6 @@ def fetch_employees_by_department_and_position(department_id, position_id):
 # Transfering an employee to another department
 def transfer_employee(employee, new_department_id):
     employee.department_id = new_department_id
-    session.commit() 
-    return employee
-
     
     
 
