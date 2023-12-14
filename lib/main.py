@@ -88,11 +88,4 @@ def fetch_employees_by_department_and_position(department_id, position_id):
     employees_by_department_and_position = session.query(Employee).filter(Employee.department_id == department_id, Employee.position_id == position_id).all()
     return employees_by_department_and_position
 
-# Transfering an employee to another department
-def transfer_employee(employee, new_department_id):
-    employee.department_id = new_department_id
-    
-    
-
-
 session.close()
