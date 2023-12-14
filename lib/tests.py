@@ -7,7 +7,7 @@ def test_sort_employees_by_name():
     sorted_employees = sort_employees_by_name()
     print("\nSort employees by name:")
     for employee in sorted_employees:
-        print(f"{employee.name}, Age: {employee.age}")
+        print(f"{employee.name}")
 
 # Test for sorting employees by age
 def test_sort_employees_by_age():
