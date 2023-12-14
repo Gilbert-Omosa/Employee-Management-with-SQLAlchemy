@@ -7,6 +7,12 @@ for department, employees in result.items():
     print(f"Department: {department}")
     for employee in employees:
         print(f"  Employee: {employee.name}, Age: {employee.age}")
+print("***** Calculates years to retirement *****")
+retirement_age = 65  # Replace with the actual retirement age
+retirement_info = years_to_retirement(retirement_age)
+print(f"Years to Retirement for Employees:")
+for employee_name, years_left in retirement_info.items():
+    print(f"{employee_name}: {years_left} years left to retirement")
 
 print("***** Employees ordered by salary in descending order and get Sum: *****")
 ordered_employees, total_salary = salary_outlook()

@@ -1,6 +1,7 @@
 from config import *
 from sqlalchemy import desc, func
 from sqlalchemy.orm import joinedload
+
 # CRUD functions for the Employee model
 def create_employee(name, age, gender, email, phone, address, hire_date, department_id, position_id):
     employee = Employee(
@@ -109,6 +110,25 @@ def females_above_age_45():
             employees_by_department[department_name].append(employee)
     return employees_by_department
 
+#years to retirement
+def years_to_retirement(retirement_age):
+    employees = session.query(Employee).all()
+
+    years_to_retirement_dict = {}
+
+    for employee in employees:
+        years_left = retirement_age - employee.age
+
+        if years_left > 0:
+            years_to_retirement_dict[employee.name] = years_left
+        else:
+            print(f"Employee {employee.name} is already past retirement age.")
+
+    return years_to_retirement_dict
+
+
+
+
 #order employees by pay in descending order and get the sum of salary the organization pays
 def salary_outlook():
     # Join Employee and Position tables and order by salary in descending order
@@ -162,4 +182,3 @@ def list_employees_by_age_range(min_age, max_age):
 #find employee by email
 def find_employees_by_email(email):
     return session.query(Employee).filter(Employee.email.ilike(f"%{email}%")).all()
-
