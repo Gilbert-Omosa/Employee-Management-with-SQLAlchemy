@@ -54,16 +54,16 @@ def entity_exists(model, entity_id):
 print_separator()
 print("Testing CRUD functions for Department" + "\n")
 
-print("Creating a department" + "\n")
-created_department = create_department(name="IT", description="Information Technology department", head="Levi Ackerman")
-print(f"{created_department.name} Department Created Successfully" + "\n")
+# print("Creating a department" + "\n")
+# created_department = create_department(name="IT", description="Information Technology department", head="Levi Ackerman")
+# print(f"{created_department.name} Department Created Successfully" + "\n")
 
-# # Read a department
-# if entity_exists(Department, created_department.id):
-#     read_department_result = read_department(created_department.id)
-#     print("Read Department:", read_department_result)
-# else:
-#     print("Department does not exist")
+print("Fetching a department using id" + "\n")
+if entity_exists(Department, 8):
+    read_department_result = read_department(department_id = 8)
+    print("Fetched Department Details:", f"Name: {read_department_result.name} Description: {read_department_result.description} Head: {read_department_result.head}" + "\n")
+else:
+    print("Department does not exist" + "\n")
 
 # # Update a department
 # updated_department = update_department(created_department.id, new_name="Marketing")
