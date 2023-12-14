@@ -105,4 +105,13 @@ def sort_employees_by_age():
 def count_employees_in_department(department_id):
     return session.query(Employee).filter(Employee.department_id == department_id).count()
 
+
+# retrieves a list of positions based on specified criteria
+def search_positions_by_job_group_and_salary_range(job_group, min_salary, max_salary):
+    positions = session.query(Position).filter(
+        Position.job_group == job_group,
+        Position.salary.between(min_salary, max_salary)
+    ).all()
+    return positions
+
 session.close()
