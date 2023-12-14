@@ -1,12 +1,6 @@
 from main import *
 
 print(">>>>>>>>>>>> CALEB FUNCTIONS <<<<<<<<<<<")
-print("***** get all female employees above the age of 45 in each department *****")
-result = females_above_age_45()
-for department, employees in result.items():
-    print(f"Department: {department}")
-    for employee in employees:
-        print(f"  Employee: {employee.name}, Age: {employee.age}")
 print("***** Calculates years to retirement *****")
 retirement_age = 65  # Replace with the actual retirement age
 retirement_info = years_to_retirement(retirement_age)
@@ -45,6 +39,13 @@ email= "vmiller@example.org"
 result = find_employees_by_email(email)
 for employee in result:
     print(f"Employee Name: {employee.name} - Email: {employee.email}")
+    
+print("***** get all female employees above the age of 45 in each department *****")
+result = females_above_age_45()
+for department, employees in result.items():
+    print(f"Department: {department}")
+    for employee in employees:
+        print(f"  Employee: {employee.name}, Age: {employee.age}")
 
 print(">>>>>>>>>>>> <<<<< >>>>> <<<<<<<<<<<")
 

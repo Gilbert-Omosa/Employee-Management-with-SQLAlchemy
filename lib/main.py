@@ -93,7 +93,7 @@ def fetch_employees_by_department_and_position(department_id, position_id):
 session.close()
 
 #--------CALEB FUNCTIONS-----------#
-# get all female employees above the age of 45 in each department
+#get all female employees above the age of 45 in each department
 def females_above_age_45():
     # query to select all female employees who are older than 45
     female_employees= session.query(Employee).filter(Employee.gender == "Female", Employee.age > 45).all()
