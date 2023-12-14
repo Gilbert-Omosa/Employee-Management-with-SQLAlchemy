@@ -97,7 +97,7 @@ def transfer_employee(employee, new_department_id):
     session.commit() 
     return employee
 
-# Shows the department with the highest money spent
+
 def get_department_with_highest_salary_expense():
     result = (
         session.query(Department.name, func.sum(Position.salary).label('total_salary'))
@@ -109,15 +109,15 @@ def get_department_with_highest_salary_expense():
     )
     return result
 
-#Creates a list of employees in each department
 
-def list_employees_by_department():
-    employees_by_department = (
-        session.query(Employee.department_id, func.count(Employee.id))
-        .group_by(Employee.department_id)
+def fetch_long_tenure_employees(min_tenure_years):
+    current_date = datetime.now()
+    long_tenure_employees = (
+        session.query(Employee)
+        .filter((current_date - Employee.hire_date).days // 365 >= min_tenure_years)
         .all()
     )
-    return employees_by_department
+    return long_tenure_employees
  
 
 session.close()
