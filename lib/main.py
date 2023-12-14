@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 from config import session
 from models import *
 from datetime import datetime as DateTime
@@ -84,13 +81,7 @@ def net_salary(employee_id):
         income_tax_rate = 0.15
         housing_levy_rate = 0.05
         union_fees_rate = 0.02
-<<<<<<< HEAD
-        
-=======
->>>>>>> origin/Gilbert
 
-<<<<<<< HEAD
-=======
         gross_salary = position.salary
         income_tax = gross_salary * income_tax_rate
         housing_levy = gross_salary * housing_levy_rate
@@ -209,4 +200,3 @@ def fetch_employees_by_department_and_position(department_id, position_id):
     return employees_by_department_and_position
 
 session.close()
->>>>>>> origin/Gilbert

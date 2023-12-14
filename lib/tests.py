@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 from config import *
 from models import Employee, Department, Position
 from main import *
@@ -189,4 +186,3 @@ for department, employees in result.items():
 
 print(">>>>>>>>>>>> <<<<< >>>>> <<<<<<<<<<<")
 Session().close()
->>>>>>> origin/Gilbert
