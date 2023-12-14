@@ -93,9 +93,4 @@ def sort_employees_by_name():
     sorted_employees= session.query(Employee).order_by(Employee.name).all()
     return sorted_employees
 
-# Sort employees by age
-def sort_employees_by_age():
-    sorted_employees = session.query(Employee).order_by(Employee.age).all()
-    return sorted_employees
-
 session.close()
