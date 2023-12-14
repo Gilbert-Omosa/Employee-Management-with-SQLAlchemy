@@ -94,13 +94,7 @@ def transfer_employee(employee, new_department_id):
     session.commit() 
     return employee
 
-# Duration that an employee has worked since their hire date
-
-def calculate_tenure(employee, current_date):
-    hire_date = employee.hire_date
-    tenure_years = (current_date - hire_date).days // 365
-    return tenure_years
- 
+    
     
 
 
