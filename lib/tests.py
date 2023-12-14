@@ -58,19 +58,19 @@ print("Testing CRUD functions for Department" + "\n")
 # created_department = create_department(name="IT", description="Information Technology department", head="Levi Ackerman")
 # print(f"{created_department.name} Department Created Successfully" + "\n")
 
-print("Fetching a department using id" + "\n")
-if entity_exists(Department, 8):
-    read_department_result = read_department(department_id = 8)
-    print("Fetched Department Details:", f"Name: {read_department_result.name} Description: {read_department_result.description} Head: {read_department_result.head}" + "\n")
+# print("Fetching a department using id" + "\n")
+# if entity_exists(Department, 8):
+#     read_department_result = read_department(department_id = 8)
+#     print("Fetched Department Details:", f"Name: {read_department_result.name} Description: {read_department_result.description} Head: {read_department_result.head}" + "\n")
+# else:
+#     print("Department does not exist" + "\n")
+
+print("Update a department using id and new data" + "\n")
+updated_department = update_department(department_id = 4, new_name = "Advertising", new_description = "Marketing department", new_head = "Oswald Cobblepot")
+if entity_exists(Department, 4):
+    print("Updated Department Details:", f"Name: {updated_department.name} Description: {updated_department.description} Head: {updated_department.head}" + "\n")
 else:
     print("Department does not exist" + "\n")
-
-# # Update a department
-# updated_department = update_department(created_department.id, new_name="Marketing")
-# if entity_exists(Department, created_department.id):
-#     print("Updated Department:", updated_department)
-# else:
-#     print("Department does not exist")
 
 # # Delete a department
 # if entity_exists(Department, created_department.id):
