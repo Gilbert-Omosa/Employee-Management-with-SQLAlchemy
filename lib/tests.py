@@ -11,8 +11,8 @@ def entity_exists(model, entity_id):
     return session.query(model).filter_by(id=entity_id).first() is not None
 
 # Test CRUD functions for Employee
-print_separator()
-print("Testing CRUD functions for Employees" + "\n")
+# print_separator()
+# print("Testing CRUD functions for Employees" + "\n")
 
 # print("Creating an employee" + "\n")
 # created_employee = create_employee(
@@ -43,20 +43,20 @@ print("Testing CRUD functions for Employees" + "\n")
 # else:
 #     print("Employee does not exist" + "\n")
 
-print("Deleting an employee using id" + "\n")
-if entity_exists(Employee, 21):
-    deleted_employee = delete_employee(employee_id = 21)
-    print("Deleted Employee Successfully" + "\n")
-else:
-    print("Employee does not exist" + "\n")
+# print("Deleting an employee using id" + "\n")
+# if entity_exists(Employee, 21):
+#     deleted_employee = delete_employee(employee_id = 21)
+#     print("Deleted Employee Successfully" + "\n")
+# else:
+#     print("Employee does not exist" + "\n")
 
 # # Test CRUD functions for Department
-# print_separator()
-# print("Testing CRUD functions for Department")
+print_separator()
+print("Testing CRUD functions for Department" + "\n")
 
-# # Create a department
-# created_department = create_department(name="Finance", description="Finance department", head="Wu Xiang")
-# print("Created Department:", created_department)
+print("Creating a department" + "\n")
+created_department = create_department(name="IT", description="Information Technology department", head="Levi Ackerman")
+print(f"{created_department.name} Department Created Successfully" + "\n")
 
 # # Read a department
 # if entity_exists(Department, created_department.id):
