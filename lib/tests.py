@@ -1,6 +1,6 @@
 from main import *
 from faker import Faker
-
+from datetime import datetime
 
 faker = Faker()
 
@@ -39,15 +39,15 @@ else:
     print("No departments found.")
 
 
-print("***** TESTING: fetching employees from each department *****")
+print("***** TESTING: fetching employess with the longest tenure *****")
 
-employees_by_department = list_employees_by_department()
+min_tenure_years = 5
+long_tenure_employees = fetch_long_tenure_employees(min_tenure_years)
 
-if employees_by_department:
-    print("Employees grouped by department:")
-    for department_id, count in employees_by_department:
-        department_name = session.query(Department.name).filter_by(id=department_id).scalar()
-        print(f"  Department: {department_name}, Count: {count}")
+if long_tenure_employees:
+    print(f"Employees with Tenure of {min_tenure_years} years or more:")
+    for employee in long_tenure_employees:
+        print(f"  Employee: {employee.name}, Tenure: {calculate_tenure(employee, current_date)} years")
 else:
-    print("No employee data available.")
+    print("No employees found with the specified tenure.")
 
