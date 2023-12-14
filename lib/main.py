@@ -88,8 +88,6 @@ def fetch_employees_by_department_and_position(department_id, position_id):
     employees_by_department_and_position = session.query(Employee).filter(Employee.department_id == department_id, Employee.position_id == position_id).all()
     return employees_by_department_and_position
 
-# Evan's functions
-
 # Transfering an employee to another department
 def transfer_employee(employee, new_department_id):
     employee.department_id = new_department_id
@@ -103,5 +101,7 @@ def calculate_tenure(employee, current_date):
     tenure_years = (current_date - hire_date).days // 365
     return tenure_years
  
+    
+
 
 session.close()
