@@ -71,6 +71,8 @@ def create_position(title, job_group, job_description, salary):
     return position
 
 def read_position(position_id):
+    
+   
     return session.query(Position).get(position_id)
 
 def update_position(position_id, new_title, new_job_group, new_job_description, new_salary):
