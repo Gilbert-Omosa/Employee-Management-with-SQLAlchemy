@@ -17,5 +17,3 @@ def test_sort_employees_by_age():
 
 test_sort_employees_by_name()
 test_sort_employees_by_age()
-
-
