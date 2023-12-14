@@ -8,8 +8,8 @@ print(">>>>>>>>>>>> EVAN FUNCTIONS <<<<<<<<<<<")
 print("***** TESTING: transferring an employee from one department to another *****")
 
 # Replace with actual data or create a new employee for testing
-employee_id_to_transfer = 1
-new_department_id = 2
+employee_id_to_transfer = 11
+new_department_id = 1
 
 # Fetch the employee before transfer
 original_employee = session.query(Employee).get(employee_id_to_transfer)
