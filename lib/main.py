@@ -1,6 +1,31 @@
+<<<<<<< HEAD
+
+=======
+from config import session
+from models import *
+from datetime import datetime as DateTime
 from config import *
 from sqlalchemy import desc, func
-#--------CALEB FUNCTIONS-----------#
+# CRUD functions for the Employee model
+def create_employee(name, age, gender, email, phone, address, date_hired, department_id, position_id):
+
+    # Convert date_hired string to datetime object
+    date_hired = DateTime.strptime(date_hired, '%Y-%m-%d')
+
+    employee = Employee(
+        name=name,
+        age=age,
+        gender=gender,
+        email=email,
+        phone=phone,
+        address=address,
+        date_hired=date_hired,
+        department_id=department_id,
+        position_id=position_id
+    )
+    session.add(employee)
+    session.commit()
+    return employee
 #get all female employees above the age of 45 in each department
 def females_above_age_45():
     # query to select all female employees who are older than 45
@@ -17,6 +42,7 @@ def females_above_age_45():
                 employees_by_department[department_name]=[]
             employees_by_department[department_name].append(employee)
     return employees_by_department
+>>>>>>> origin/Gilbert
 
 #years to retirement
 def years_to_retirement(retirement_age):
@@ -58,15 +84,19 @@ def net_salary(employee_id):
         income_tax_rate = 0.15
         housing_levy_rate = 0.05
         union_fees_rate = 0.02
+<<<<<<< HEAD
+        
+=======
+>>>>>>> origin/Gilbert
 
+<<<<<<< HEAD
+=======
         gross_salary = position.salary
         income_tax = gross_salary * income_tax_rate
         housing_levy = gross_salary * housing_levy_rate
         union_fees = gross_salary * union_fees_rate
-
         # Calculate net salary after deductions
         net_salary = gross_salary - income_tax - housing_levy - union_fees
-
         # Return detailed information
         result = {
             "employee_name": employee.name,
@@ -90,3 +120,93 @@ def list_employees_by_age_range(min_age, max_age):
 #find employee by email
 def find_employees_by_email(email):
     return session.query(Employee).filter(Employee.email.ilike(f"%{email}%")).all()
+
+# CRUD functions for the Department model
+def create_department(name, description, head):
+    department = Department(name=name, description=description, head=head)
+    session.add(department)
+    session.commit()
+    return department
+
+def update_department(department_id, new_name, new_description, new_head):
+    department = session.query(Department).get(department_id)
+
+    # Check if the new name is already in use
+    if new_name is not None and new_name != department.name:
+        existing_department = session.query(Department).filter_by(name=new_name).first()
+        if existing_department:
+            print(f"Error: Department with name '{new_name}' already exists.")
+            return None
+
+    # Update the department attributes
+    if new_name is not None:
+        department.name = new_name
+    if new_description is not None:
+        department.description = new_description
+    if new_head is not None:
+        department.head = new_head
+
+    session.commit()
+    return department
+
+def delete_department(department_id):
+    department = session.query(Department).get(department_id)
+    associated_employees = session.query(Employee).filter_by(department_id=department_id).all()
+    for employee in associated_employees:
+        session.delete(employee)
+    session.delete(department)
+    session.commit()
+    return department
+
+# CRUD functions for the Position model
+def create_position(title, job_group, job_description, salary):
+    position = Position(title=title, job_group=job_group, job_description=job_description, salary=salary)
+    session.add(position)
+    session.commit()
+    return position
+
+def read_position(position_id):
+    return session.query(Position).get(position_id)
+
+def update_position(position_id, new_title, new_job_group, new_job_description, new_salary):
+    position = session.query(Position).get(position_id)
+
+    if new_title is not None and new_title != position.title:
+        existing_position = session.query(Position).filter_by(title=new_title).first()
+        if existing_position:
+            print(f"Error: Position with title '{new_title}' already exists.")
+            return None
+        
+    if new_title is not None:
+        position.title = new_title
+    if new_job_group is not None:
+        position.job_group = new_job_group
+    if new_job_description is not None:
+        position.job_description = new_job_description
+    if new_salary is not None:
+        position.salary = new_salary
+
+    session.commit()
+    return position
+
+def delete_position(position_id):
+    position = session.query(Position).get(position_id)
+    associated_employees = session.query(Employee).filter_by(position_id=position_id).all()
+    for employee in associated_employees:
+        session.delete(employee)
+    session.delete(position)
+    session.commit()
+    return position
+
+# Fetching employees by position
+def fetch_employees_by_position(position_id):
+    employees_by_position = session.query(Employee).filter(Employee.position_id == position_id).all()
+    return employees_by_position
+
+# Fetching employees by department and position
+def fetch_employees_by_department_and_position(department_id, position_id):
+    employees_by_department_and_position = session.query(Employee).filter(Employee.department_id == department_id, Employee.position_id == position_id).all()
+    return employees_by_department_and_position
+
+session.close()
+>>>>>>> origin/Gilbert
