@@ -245,6 +245,7 @@ if __name__ == '__main__':
     test_count_employees_in_hr_department()
     
 #  search_positions_by_job_group_and_salary_range function for all job groups
+
 def test_search_positions_for_all_groups():
     # Define a list of job groups to test
     job_groups = ['J', 'K', 'C', 'E', 'Y', 'X', 'Z', 'M', 'P']
