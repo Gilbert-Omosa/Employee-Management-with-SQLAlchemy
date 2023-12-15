@@ -16,9 +16,9 @@ print("Testing CRUD functions for Employees" + "\n")
 
 print("Creating an employee" + "\n")
 created_employee = create_employee(
-    name="Nerfertari Cobra",
-    age=54,
-    gender="Male",
+    name="Eileen Cooper",
+    age=29,
+    gender="Female",
     email="0JpjE@example.com",
     phone="123-456-7890",
     address="123 Main Street",
@@ -36,16 +36,16 @@ else:
     print("Employee does not exist" + "\n")
 
 print("Updating an employee using id and new data" + "\n")
-update_data = {"name": "Dory Swimmer", "phone": "123-456-7890", "address": "42 Wallaby Way Sydney"}
-if entity_exists(Employee, 58):
-    updated_employee = update_employee(employee_id=58, new_data=update_data)
+update_data = {"name": "Dory Walker", "phone": "986756436", "address": "42 Wallaby Way Auckland"}
+if entity_exists(Employee, 8):
+    updated_employee = update_employee(employee_id=8, new_data=update_data)
     print("Updated Employee Details:", f" Name: {updated_employee.name} phone: {updated_employee.phone} address: {updated_employee.address}" + "\n")
 else:
     print("Employee does not exist" + "\n")
 
 print("Deleting an employee using id" + "\n")
-if entity_exists(Employee, 21):
-    deleted_employee = delete_employee(employee_id = 21)
+if entity_exists(Employee, 20):
+    deleted_employee = delete_employee(employee_id = 20)
     print("Deleted Employee Successfully" + "\n")
 else:
     print("Employee does not exist" + "\n")
@@ -108,7 +108,7 @@ if entity_exists(Position, 3):
 else:
     print("Position does not exist" + "\n")
 
-# # Test fetching employees by position
+# Test fetching employees by position
 print_separator()
 print("Testing fetching employees by position" + "\n")
 
