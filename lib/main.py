@@ -4,11 +4,7 @@ from datetime import datetime as DateTime
 from config import *
 from sqlalchemy import desc, func
 # CRUD functions for the Employee model
-def create_employee(name, age, gender, email, phone, address, date_hired, department_id, position_id):
-
-    # Convert date_hired string to datetime object
-    date_hired = DateTime.strptime(date_hired, '%Y-%m-%d')
-
+def create_employee(name, age, gender, email, phone, address, hire_date, department_id, position_id):
     employee = Employee(
         name=name,
         age=age,
@@ -16,7 +12,7 @@ def create_employee(name, age, gender, email, phone, address, date_hired, depart
         email=email,
         phone=phone,
         address=address,
-        date_hired=date_hired,
+        hire_date=hire_date,
         department_id=department_id,
         position_id=position_id
     )
@@ -27,45 +23,27 @@ def create_employee(name, age, gender, email, phone, address, date_hired, depart
 
 
 # CRUD functions for the Department model
-def create_department(name, description, head):
-    department = Department(name=name, description=description, head=head)
+def create_department(name):
+    department = Department(name=name)
     session.add(department)
     session.commit()
     return department
 
 def update_department(department_id, new_name, new_description, new_head):
     department = session.query(Department).get(department_id)
-
-    # Check if the new name is already in use
-    if new_name is not None and new_name != department.name:
-        existing_department = session.query(Department).filter_by(name=new_name).first()
-        if existing_department:
-            print(f"Error: Department with name '{new_name}' already exists.")
-            return None
-
-    # Update the department attributes
-    if new_name is not None:
-        department.name = new_name
-    if new_description is not None:
-        department.description = new_description
-    if new_head is not None:
-        department.head = new_head
-
+    department.name = new_name
     session.commit()
     return department
 
 def delete_department(department_id):
     department = session.query(Department).get(department_id)
-    associated_employees = session.query(Employee).filter_by(department_id=department_id).all()
-    for employee in associated_employees:
-        session.delete(employee)
     session.delete(department)
     session.commit()
     return department
 
 # CRUD functions for the Position model
-def create_position(title, job_group, job_description, salary):
-    position = Position(title=title, job_group=job_group, job_description=job_description, salary=salary)
+def create_position(title, salary):
+    position = Position(title=title, salary=salary)
     session.add(position)
     session.commit()
     return position
@@ -75,32 +53,15 @@ def read_position(position_id):
    
     return session.query(Position).get(position_id)
 
-def update_position(position_id, new_title, new_job_group, new_job_description, new_salary):
+def update_position(position_id, new_title, new_salary):
     position = session.query(Position).get(position_id)
-
-    if new_title is not None and new_title != position.title:
-        existing_position = session.query(Position).filter_by(title=new_title).first()
-        if existing_position:
-            print(f"Error: Position with title '{new_title}' already exists.")
-            return None
-        
-    if new_title is not None:
-        position.title = new_title
-    if new_job_group is not None:
-        position.job_group = new_job_group
-    if new_job_description is not None:
-        position.job_description = new_job_description
-    if new_salary is not None:
-        position.salary = new_salary
-
+    position.title = new_title
+    position.salary = new_salary
     session.commit()
     return position
 
 def delete_position(position_id):
     position = session.query(Position).get(position_id)
-    associated_employees = session.query(Employee).filter_by(position_id=position_id).all()
-    for employee in associated_employees:
-        session.delete(employee)
     session.delete(position)
     session.commit()
     return position

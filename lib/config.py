@@ -2,7 +2,6 @@ from faker import Faker
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models import Base, Employee, Department, Position
-from random import randint
 
 # Set Up SQLite database engine
 engine = create_engine("sqlite:////Users/ms/Desktop/Development/Employee-Management-with-SQLAlchemy/database.sqlite")
