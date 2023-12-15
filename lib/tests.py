@@ -1,3 +1,6 @@
+
+
+
 from config import *
 from models import Employee, Department, Position
 from main import *
@@ -137,5 +140,129 @@ for employee in employees_by_department_and_position_result:
     print("Phone:", employee.phone)
     print("Address:", employee.address)
     print("\n")
+print(">>>>>>>>>>>> CALEB FUNCTIONS <<<<<<<<<<<")
+print("***** Calculates years to retirement *****")
+retirement_age = 65  # Replace with the actual retirement age
+retirement_info = years_to_retirement(retirement_age)
+print(f"Years to Retirement for Employees:")
+for employee_name, years_left in retirement_info.items():
+    print(f"{employee_name}: {years_left} years left to retirement")
 
+print("***** Employees ordered by salary in descending order and get Sum: *****")
+ordered_employees, total_salary = salary_outlook()
+for employee in ordered_employees:
+    print(f"  Employee: {employee.name}, Salary: {employee.position.salary}")
+
+print(f"\nTotal organization salary: KSH {total_salary}")
+print("*****Calculate net salary of employee after deductions: 15% INCOME TAX , 5% HOUSING LEVY and 2% UNION FEES*****")
+employee_id_to_calculate = 1  # Replace with the actual employee_id
+result = net_salary(employee_id_to_calculate)
+if result:
+    print(f"Detailed Salary Calculation for Employee ID {employee_id_to_calculate} ({result['employee_name']}):")
+    print(f"Gross Salary: {result['gross_salary']}")
+    print(f"Deductions:")
+    print(f"  Income Tax: {result['deductions']['income_tax']}")
+    print(f"  Housing Levy: {result['deductions']['housing_levy']}")
+    print(f"  Union Fees: {result['deductions']['union_fees']}")
+    print(f"Net Salary: {result['net_salary']}")
+else:
+    print(f"No position information found for Employee ID {employee_id_to_calculate}.")
+
+print("*****Find employee by age range*****")
+min_age=18
+max_age=40
+result = list_employees_by_age_range(min_age, max_age)
+for employee in result:
+    print(f"Employee Name: {employee.name} - Age: {employee.age}")
+print("*****Find employee by email*****")
+email= "vmiller@example.org"
+result = find_employees_by_email(email)
+for employee in result:
+    print(f"Employee Name: {employee.name} - Email: {employee.email}")
+    
+print("***** get all female employees above the age of 45 in each department *****")
+result = females_above_age_45()
+for department, employees in result.items():
+    print(f"Department: {department}")
+    for employee in employees:
+        print(f"  Employee: {employee.name}, Age: {employee.age}")
+
+print(">>>>>>>>>>>> <<<<< >>>>> <<<<<<<<<<<")
 Session().close()
+
+from main import *
+
+# Eckra TESTS
+
+# Test for sorting employees by name
+def test_sort_employees_by_name():
+    sorted_employees = sort_employees_by_name()
+    print("\nSort employees by name:")
+    for employee in sorted_employees:
+        print(f"{employee.name}")
+        
+test_sort_employees_by_name()
+
+# # Test for sorting employees by age
+def test_sort_employees_by_age():
+    sorted_employees = sort_employees_by_age()
+    print("\nSort employees by age:")
+    for employee in sorted_employees:
+        print(f"{employee.name}, Age: {employee.age}")
+
+
+  
+test_sort_employees_by_age()
+
+
+department_id_legal = 1
+department_id_Administration = 2
+department_id_hr = 3
+
+#Count employees in the Administration department
+
+def test_count_employees_in_legal_department():
+    count = count_employees_in_department(department_id_legal)
+    print(f"\nEmployees in Legal Department: {count}")
+    assert count >= 0  
+
+#  Count employees in the Administration department
+def test_count_employees_in_administration_department():
+    count = count_employees_in_department(department_id_Administration)
+    print(f"Employees in Administration Department: {count}")
+    assert count >= 0  
+
+#  Count employees in the Human Resources department
+def test_count_employees_in_hr_department():
+    count = count_employees_in_department(department_id_hr)
+    print(f"Employees in Human Resources Department: {count}")
+    assert count >= 0  
+
+if __name__ == '__main__':
+    
+    test_count_employees_in_legal_department()
+    test_count_employees_in_administration_department()
+    test_count_employees_in_hr_department()
+    
+#  search_positions_by_job_group_and_salary_range function for all job groups
+def test_search_positions_for_all_groups():
+    # Define a list of job groups to test
+    job_groups = ['J', 'K', 'C', 'E', 'Y', 'X', 'Z', 'M', 'P']
+    min_salary = 30000
+    max_salary = 90000
+    
+    for job_group in job_groups:
+        positions = search_positions_by_job_group_and_salary_range(job_group, min_salary, max_salary)
+        
+        print("\nPositions in Job Group {} with Salary Range {} - {}:".format(job_group, min_salary, max_salary))
+        for position in positions:
+            print("ID: {}, Title: {}, Salary: {}".format(position.id, position.title, position.salary))
+
+
+test_search_positions_for_all_groups()
+
+
+
+    
+
+

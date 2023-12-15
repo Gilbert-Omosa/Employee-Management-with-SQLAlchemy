@@ -5,7 +5,7 @@ from models import Base, Employee, Department, Position
 from random import randint
 
 # Set Up SQLite database engine
-engine = create_engine("sqlite:///database.sqlite")
+engine = create_engine("sqlite:////Users/ms/Desktop/Development/Employee-Management-with-SQLAlchemy/database.sqlite")
 
 # Create a session to interact with the database
 Session = sessionmaker(bind=engine)

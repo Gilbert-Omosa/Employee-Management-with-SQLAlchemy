@@ -49,14 +49,14 @@ The system works well and has no bugs.
 
 ## Support and Contact Details
 
-- Caleb Mutisya: [caleb.mutisya@student.moringaschool.com](caleb.mutisya@student.moringaschool.com), +254741050611
-- Eckra Wangui: [wanguieckra@gmail.com](wanguieckra@gmail.com), +254702697921
-- Gilbert Omosa: [gilbert.omosa@student.moringaschool.com](gilbert.omosa@student.moringaschool.com), +254721713957
-- Evan Keya: [evan.keya@student.moringaschool.com](evan.keya@student.moringaschool.com), +254797118632
+- Caleb Mutisya: caleb.mutisya@student.moringaschool.com, +254741050611
+- Eckra Wangui: wanguieckra@gmail.com, +254702697921
+- Gilbert Omosa: gilbert.omosa@student.moringaschool.com, +254721713957
+- Evan Keya: evan.keya@student.moringaschool.com, +254797118632
 
 ### License
 
 *Licensed under the MIT Licence
 Copyright (c) 2023 Gilbert Omosa, Eckra Wangui, Evan Keya, Caleb Mutisya*
 
-[Read the full license text here](/home/gilbertomosa/Projects/Phase-3/Employee-Management-with-SQLAlchemy/LICENSE.md)
+[Read the full license text here](LICENSE)
